@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: php-apache
+    environment:
+    - TZ=Europe/Warsaw
+    - APACHE_DOCUMENT_ROOT=/var/www/html/public
+    ports:
+      - "8080:80"  # Exposes port 80 in the container to port 8080 on the host
+    volumes:
+      - ./:/var/www/html  # Mounts your PHP app from ./src to /var/www/html
+    networks:
+      - php_network
+
+networks:
+  php_network:
+    driver: bridge
