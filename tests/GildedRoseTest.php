@@ -21,8 +21,8 @@ class GildedRoseTest extends TestCase
         $gildedRose = new GildedRose();
         $gildedRose->updateQuality($item);
 
-        $this->assertEquals($expectedSellIn, $item->sell_in);
-        $this->assertEquals($expectedQuality, $item->quality);
+        $this->assertEquals($expectedSellIn, $item->getSellIn());
+        $this->assertEquals($expectedQuality, $item->getQuality());
     }
 
     public function itemsProvider(): array
